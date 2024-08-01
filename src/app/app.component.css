@@ -1,3 +1,10 @@
-spacer {
-    flex: 1 1 auto;
-  }
+.app{
+    main{
+        padding:10px;
+        /* 56px הגובה של הtool bar */
+        height: calc(100vh - 56px);
+        .list-container{
+            width: 25%;
+        }
+    }
+}
