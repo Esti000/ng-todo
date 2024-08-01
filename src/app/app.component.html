@@ -6,7 +6,11 @@
     
     
     </div>
-    <div class="todo-container"></div>
-
+    <div class="todo-container">
+        <app-todo></app-todo>
+    </div>
+      <button (click)="openDialog()" class="add-new-todo-btn" mat-fab aria-label color="primary">
+        <mat-icon>add</mat-icon>
+      </button>
 </main>
 </div>

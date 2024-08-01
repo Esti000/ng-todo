@@ -1,10 +1,22 @@
 .app{
     main{
         padding:10px;
+        display: flex;
+        /* מרווח בין עמודה לעמודה */
+        gap: 10px;
         /* 56px הגובה של הtool bar */
-        height: calc(100vh - 56px);
+        height: calc(100vh - 76px);
         .list-container{
             width: 25%;
+        };
+        .todo-container{
+            width: 75%;
+        };
+        .add-new-todo-btn{
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
         }
+        
     }
 }
