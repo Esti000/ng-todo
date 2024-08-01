@@ -26,6 +26,20 @@ export class TodoService {
 
   public getTodos(): Observable<Array<IToDo>> 
   {
+    if(!this._TodoSubject.value.length)
+    {
+      if (typeof localStorage === "undefined" || localStorage === null) {
+        var LocalStorage = require('node-localstorage').LocalStorage;
+        localStorage = new LocalStorage('./scratch');
+    }
+      const todosString= localStorage.getItem("todos")?localStorage.getItem("todos"):null
+    //  console.log(localStorage['todos'], todosString)
+      if(todosString)
+      {
+        const existingTodos=JSON.parse(todosString)
+        this._TodoSubject.next(existingTodos);
+      }
+    }
     return this._TodoSubject.asObservable()
   }
 
@@ -40,5 +54,7 @@ export class TodoService {
     const ExitlistOfToDo: Array<IToDo> =this._TodoSubject.value;
     ExitlistOfToDo.push(newTodo)
     this._TodoSubject.next(ExitlistOfToDo)
+    localStorage.setItem("todos",JSON.stringify(ExitlistOfToDo) )
+    console.log(localStorage['todos'])
   }
 }

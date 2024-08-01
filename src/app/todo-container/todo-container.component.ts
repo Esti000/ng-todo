@@ -46,8 +46,8 @@ export class TodoContainerComponent implements OnInit, OnDestroy{
   public openDialog(): void {
     const dialogRef = this.dialog.open(NewTodoComponent, {
      
-       width:'600px',
-       height:'300px'
+      //  width:'600px',
+      //  height:'300px'
     });
 
     dialogRef.afterClosed().subscribe(result => {

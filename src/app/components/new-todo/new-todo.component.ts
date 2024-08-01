@@ -22,6 +22,7 @@ constructor(public matDialog: MatDialog, private todoservice:TodoService)
  public onNewTodoSubmit(): void{
   // create the new todo object
   // send object to service
+  if(this.form.valid){
   const formvalue=this.form.form.value
   const newTodo: IToDo={
     id:uuidv4(),
@@ -35,8 +36,7 @@ constructor(public matDialog: MatDialog, private todoservice:TodoService)
   }
   this.todoservice.addNewToDo(newTodo)
   this.matDialog.closeAll()
-  console.log("On submit")
-  console.log(this.form)
-
+ 
+   }
  }
 }
