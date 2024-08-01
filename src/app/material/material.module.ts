@@ -7,8 +7,14 @@ import {MatCardModule} from '@angular/material/card';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
 import {MatDialogModule} from '@angular/material/dialog';
+import { FormsModule } from '@angular/forms';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
 const modules=[
-  MatDialogModule,MatToolbarModule, MatIconModule, MatButtonModule, MatCardModule, MatDividerModule, NgFor, NgIf, MatListModule, NgClass, 
+  MatDialogModule,MatToolbarModule, MatIconModule, MatButtonModule, MatCardModule, MatDividerModule, NgFor, NgIf, MatListModule, NgClass, FormsModule, MatFormFieldModule, MatInputModule, MatDatepickerModule,
+  MatNativeDateModule
 ]
 
 @NgModule({

@@ -1,7 +1,5 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { TodoService } from '../../services/todo.service';
+import { Component, Input,  OnInit } from '@angular/core';
 import { IToDo } from '../../models/todo.interface';
-import { Subscription } from 'rxjs';
 
 import { JsonPipe } from '@angular/common';
 import { MaterialModule } from '../../material/material.module';
@@ -13,26 +11,26 @@ import { MaterialModule } from '../../material/material.module';
   templateUrl: './todo.component.html',
   styleUrl: './todo.component.css'
 })
-export class TodoComponent implements OnInit, OnDestroy{
-  public todo:IToDo;
-
-  private subscription:Subscription=new Subscription()
-  constructor(private todoService: TodoService)
+export class TodoComponent implements OnInit{
+  private _todo: IToDo
+  @Input() set todo(todo: IToDo)
+  {
+    this._todo=todo
+    console.log(todo)
+  }
+  get todo():IToDo
+  {
+    return this._todo
+  }
+  constructor()
   {
 
   }
-  ngOnDestroy(): void {
-   
-    this.subscription.unsubscribe();
-  }
+
   
   
   ngOnInit(): void {
-    this.subscription.add(
-      this.todoService.getSelectedTodo().subscribe(data=>{
-        this.todo=data;
-      })
-    )
+   
    
   }
 
